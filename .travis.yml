@@ -1,7 +1,15 @@
+language: java
+sudo: false
+
+cache:
+  directories:
+  - $HOME/.m2
+
 deploy:
   provider: gae
   keyfile: "receipts-dev-deploy.json"
   project: receipts-187b6
+
 before_install:
 - openssl aes-256-cbc -K $encrypted_4bd8af1e2f1a_key -iv $encrypted_4bd8af1e2f1a_iv
   -in receipts-dev-deploy.json.enc -out receipts-dev-deploy.json -d
