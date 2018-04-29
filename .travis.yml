@@ -7,7 +7,8 @@ cache:
 
 script:
   - mvn test -B
-  - mvn appengine:deploy -Dapp.deploy.project=receipts-187b6 -Dappengine.additionalParams="--service_account_json_key_file=receipts-dev-deploy.json"
+  - gcloud auth activate-service-account "deployment@receipts-187b6.iam.gserviceaccount.com" --key-file=receipts-dev-deploy.json
+  - mvn appengine:deploy -Dapp.deploy.project=receipts-187b6 #-Dappengine.additionalParams="--service_account_json_key_file=receipts-dev-deploy.json"
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_4bd8af1e2f1a_key -iv $encrypted_4bd8af1e2f1a_iv -in receipts-dev-deploy.json.enc -out receipts-dev-deploy.json -d
