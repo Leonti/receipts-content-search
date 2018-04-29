@@ -1,5 +1,6 @@
 package com.leonti.receipts.auth
 
+import com.google.appengine.api.appidentity.AppIdentityServiceFactory
 import com.google.appengine.api.utils.SystemProperty
 import com.google.appengine.tools.cloudstorage.*
 import com.google.common.io.CharStreams
@@ -29,12 +30,15 @@ class ApiSecurityConfig : WebSecurityConfigurerAdapter() {
     }
 
     private fun getStoredApiKey():String {
-        val readChannel = gcsService().openReadChannel(GcsFilename("ocr-search", "api-key"), 0)
+        val defaultBucket = AppIdentityServiceFactory.getAppIdentityService().defaultGcsBucketName
+        log.info("Deafault bucket name $defaultBucket")
+        val readChannel = gcsService().openReadChannel(GcsFilename(defaultBucket, "api-key"), 0)
         return CharStreams.toString(InputStreamReader(Channels.newInputStream(readChannel), Charsets.UTF_8)).trim()
     }
 
     private fun createLocalToken() {
-        val outputChannel = gcsService().createOrReplace(GcsFilename("ocr-search", "api-key"), GcsFileOptions.getDefaultInstance());
+        val defaultBucket = AppIdentityServiceFactory.getAppIdentityService().defaultGcsBucketName
+        val outputChannel = gcsService().createOrReplace(GcsFilename(defaultBucket, "api-key"), GcsFileOptions.getDefaultInstance());
         val outputStream = Channels.newOutputStream(outputChannel)
         OutputStreamWriter(outputStream).use { outputStreamWriter ->
             outputStreamWriter.write("LOCAL_API_KEY")
