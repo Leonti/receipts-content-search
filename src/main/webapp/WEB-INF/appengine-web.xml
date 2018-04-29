@@ -18,4 +18,8 @@ limitations under the License.
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
     </system-properties>
     <service>ocr-search</service>
+    <basic-scaling>
+        <max-instances>3</max-instances>
+        <idle-timeout>5m</idle-timeout>
+    </basic-scaling>
 </appengine-web-app>
