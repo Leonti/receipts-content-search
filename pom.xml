@@ -25,7 +25,6 @@ limitations under the License.
   <properties>
     <java.version>1.8</java.version>
     <kotlin.version>1.2.40</kotlin.version>
-    <jackson.version>2.4.1</jackson.version>
   </properties>
 
   <dependencies>
@@ -41,7 +40,7 @@ limitations under the License.
       <version>0.7</version>
       <scope>compile</scope>
       <exclusions>
-        <exclusion>  <!-- declare the exclusion here -->
+        <exclusion>
           <groupId>com.fasterxml.jackson.core</groupId>
           <artifactId>jackson-core</artifactId>
         </exclusion>
@@ -89,25 +88,6 @@ limitations under the License.
       <artifactId>kotlin-stdlib-jdk8</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
-<!--
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.fasterxml.jackson.jaxrs</groupId>
-      <artifactId>jackson-jaxrs-json-provider</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
--->
     <dependency>
       <groupId>com.fasterxml.jackson.module</groupId>
       <artifactId>jackson-module-kotlin</artifactId>
