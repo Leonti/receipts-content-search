@@ -17,5 +17,5 @@ limitations under the License.
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
     </system-properties>
-    <!--<module>ocr-search</module>-->
+    <service>ocr-search</service>
 </appengine-web-app>

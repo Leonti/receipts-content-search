@@ -6,7 +6,7 @@ cache:
 script:
 - mvn test -B
 - gcloud auth activate-service-account "deployment@receipts-187b6.iam.gserviceaccount.com" --key-file=receipts-dev-deploy.json
-#- mvn appengine:deploy -Dapp.deploy.project=receipts-187b6
+- mvn appengine:deploy -Dapp.deploy.project=receipts-187b6
 - gcloud auth activate-service-account "deployment@receipts-production.iam.gserviceaccount.com" --key-file=receipts-prod-deploy.json
 - mvn appengine:deploy -Dapp.deploy.project=receipts-production
 before_install:
