@@ -20,3 +20,4 @@ test-output
 .externalToolBuilders
 *~
 receipts-dev-deploy.json
+receipts-prod-deploy.json
