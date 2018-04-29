@@ -5,11 +5,9 @@ cache:
   - "$HOME/.m2"
 script:
 - mvn test -B
-- gcloud auth activate-service-account "deployment@receipts-187b6.iam.gserviceaccount.com"
-  --key-file=receipts-dev-deploy.json
-- mvn appengine:deploy -Dapp.deploy.project=receipts-187b6
-- gcloud auth activate-service-account "deployment@receipts-production.iam.gserviceaccount.com"
-  --key-file=receipts-prod-deploy.json
+- gcloud auth activate-service-account "deployment@receipts-187b6.iam.gserviceaccount.com" --key-file=receipts-dev-deploy.json
+#- mvn appengine:deploy -Dapp.deploy.project=receipts-187b6
+- gcloud auth activate-service-account "deployment@receipts-production.iam.gserviceaccount.com" --key-file=receipts-prod-deploy.json
 - mvn appengine:deploy -Dapp.deploy.project=receipts-production
 before_install:
 - openssl aes-256-cbc -K $encrypted_4bd8af1e2f1a_key -iv $encrypted_4bd8af1e2f1a_iv
