@@ -21,3 +21,4 @@ test-output
 *~
 receipts-dev-deploy.json
 receipts-prod-deploy.json
+secrets.tar
